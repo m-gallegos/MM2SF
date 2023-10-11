@@ -16,6 +16,16 @@ G^{ang}_{i} = 2^{1-\xi} \sum^{N}_{j,k \ne i} (1 + cos(\theta_{ijk}-\theta_{s}))^
 
 in the particular case of the latter, a heavily modified functional form **[3]** is used.
 
+# Installation
+
+MM2SF can be easily installed using the pip Python package manager:
+
+    pip install git+https://github.com/m-gallegos/MM2SF.git
+
+Alternatively, one can download the zip file from the MM2SF GitHub and run the following command:
+
+    pip install MM2SSF-main.zip
+
 # References
 
 **[1]** J. Behler , The Journal of Chemical Physics, 134, 074106 (2011).
