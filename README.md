@@ -26,6 +26,10 @@ Alternatively, one can download the zip file from the MM2SF GitHub and run the f
 
     pip install MM2SSF-main.zip
 
+# Execution
+
+MM2SF can be directly executed from the command line. 
+
 # References
 
 **[1]** J. Behler , The Journal of Chemical Physics, 134, 074106 (2011).
