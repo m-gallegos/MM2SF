@@ -30,6 +30,14 @@ Alternatively, one can download the zip file from the MM2SF GitHub and run the f
 
 MM2SF can be directly executed from the command line. 
 
+    import MM2SF as mm2sf
+    from MM2SF.radial import *
+    mm2sf_radial.radial_selector_tailormade(trjname="./alanine_capped_AMBER_traj_500K.xyz", nbins=1000, nmax=15, max_iter=10000, bw=None, smooth='no',
+                            rcut=7.0, trj_step=100, cut_type='hard', ndecomp=2,
+                            over_thres=0.005, aux="yes", rtype=1, new_format=False)
+
+
+
 # References
 
 **[1]** J. Behler , The Journal of Chemical Physics, 134, 074106 (2011).
