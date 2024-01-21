@@ -27,5 +27,4 @@ if __name__ == "__main__":
         package_dir={"": "src"},
         packages=setuptools.find_packages(where='src'),
         include_package_data=True,
-        ]}
     )
