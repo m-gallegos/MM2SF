@@ -34,24 +34,29 @@ MM2SF can be directly executed from the command line.
     from MM2SF.radial import *
     mm2sf_radial.radial_selector_tailormade(trjname="./alanine_capped_AMBER_traj_500K.xyz",nbins=1000, 
                             nmax=15,max_iter=10000,bw=None,smooth='no',rcut=7.0,trj_step=100, 
-                            cut_type='hard',ndecomp=2,over_thres=0.005,aux="yes",rtype=1,new_format=False)
+                            cut_type='hard',ndecomp=2,over_thres=0.005,aux="yes",rtype=1,new_format=True)
 
     mm2sf_radial.radial_selector_displaced(trjname="./alanine_capped_AMBER_traj_500K.xyz", nbins=1000, 
                             nmax=15, max_iter=10000, bw=None, smooth='no',rcut=7.0, trj_step=1, 
-                            cut_type='hard', over_thres=0.005,rtype=1,sigma_scale=3,new_format=False)
+                            cut_type='hard', over_thres=0.005,rtype=1,sigma_scale=3,new_format=True)
                             
     mm2sf_radial.radial_selector_binary(trjname="./alanine_capped_AMBER_traj_500K.xyz", nbins=1000, 
                             nmax=15, max_iter=10000, bw=None, smooth='no',rcut=7.0, trj_step=1, 
-                            cut_type='hard', over_thres=0.005, rtype=1, alpha=3, beta=0.5,new_format=False)
+                            cut_type='hard', over_thres=0.005, rtype=1, alpha=3, beta=0.5,new_format=True)
                             
     mm2sf_radial.radial_selector_even(trjname="./alanine_capped_AMBER_traj_500K.xyz", nbins=1000, 
                             nmax=15, max_iter=10000, bw=None, smooth='no',rcut=7.0, trj_step=1, 
-                            cut_type='hard', ndecomp=4, over_thres=0.005, aux='no',rtype=1,new_format=False)
+                            cut_type='hard', ndecomp=4, over_thres=0.005, aux='no',rtype=1,new_format=True)
+
 
     import MM2SF as mm2sf
     from MM2SF.angular import *
     mm2sf_angular.angular_selector(trjname="./alanine_capped_AMBER_traj_500K.xyz", rcut=3.5, nbins=500, trj_step=250, nmax=20, max_iter=100000000,
-                 cv_type='full', gmm_crit="bicconv", atype=3, afrac=0.75, percbic=30, percdiff=40,new_format=False)
+                 cv_type='full', gmm_crit="bicconv", atype=3, afrac=0.75, percbic=30, percdiff=40,new_format=True)
+
+    from MM2SF.acsf import *
+    mm2sf_sfc.compute_ACSF(trjname="./alanine_capped_AMBER_traj_500K.xyz",irad="./input.rad",iang="./input.ang",new_format=True)    
+    mm2sf_sfc.compute_ACSF(trjname="./alanine_capped_AMBER_traj_500K.xyz",itype="./input.type",irad="./input.rad",iang="./input.ang",new_format=False)
 
 # References
 
