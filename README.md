@@ -48,6 +48,10 @@ MM2SF can be directly executed from the command line.
                             nmax=15, max_iter=10000, bw=None, smooth='no',rcut=7.0, trj_step=1, 
                             cut_type='hard', ndecomp=4, over_thres=0.005, aux='no',rtype=1,new_format=False)
 
+    import MM2SF as mm2sf
+    from MM2SF.angular import *
+    mm2sf_angular.angular_selector(trjname="./alanine_capped_AMBER_traj_500K.xyz", rcut=3.5, nbins=500, trj_step=250, nmax=20, max_iter=100000000,
+                 cv_type='full', gmm_crit="bicconv", atype=3, afrac=0.75, percbic=30, percdiff=40,new_format=False)
 
 # References
 
