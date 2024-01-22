@@ -55,7 +55,7 @@ However, in the near future we may explore the implementation of the self-tuning
     
     mm2sf_radial.radial_selector_tailormade(trjname="./alanine_capped_AMBER_traj_500K.xyz",nbins=1000, 
                             nmax=15,max_iter=10000,bw=None,smooth='no',rcut=7.0,trj_step=100, 
-                            cut_type='hard',ndecomp=2,over_thres=0.005,aux="yes",rtype=1,new_format=True)
+                            cut_type='hard',ndecomp=2,over_thres=0.005,aux="yes",new_format=True)
     Parameters:
     - trjname (str): Path to the trajectory file (XYZ format in Angstroms).
     - nbins (int): Number of bins to be used for the histograms.
@@ -69,7 +69,6 @@ However, in the near future we may explore the implementation of the self-tuning
     - ndecomp (int): Number of Gaussians in which each GMM component will be further decomposed.
     - over_thres (float): Overlap threshold to include auxiliary functions.
     - aux (str): Whether to include auxiliary functions ('yes' or 'no').
-    - rtype (int): Type of radial (1 or 2).
     - new_format (logic): use old (deprecated) or new format to store the ACSF angular parameters.
 
 
@@ -77,7 +76,7 @@ However, in the near future we may explore the implementation of the self-tuning
 
     mm2sf_radial.radial_selector_displaced(trjname="./alanine_capped_AMBER_traj_500K.xyz", nbins=1000, 
                             nmax=15, max_iter=10000, bw=None, smooth='no',rcut=7.0, trj_step=1, 
-                            cut_type='hard', over_thres=0.005,rtype=1,sigma_scale=3,new_format=True)
+                            cut_type='hard', over_thres=0.005,sigma_scale=3,new_format=True)
 
     Parameters:
     - trjname (str): Path to the trajectory file (XYZ format in Angstroms).
@@ -90,7 +89,6 @@ However, in the near future we may explore the implementation of the self-tuning
     - trj_step (int): Step used to sample the geometries.
     - cut_type (str): Cutoff type ('hard' or 'soft').
     - over_thres (float): Overlap threshold to include auxiliary functions.
-    - rtype (int): Type of radial (1 or 2).
     - sigma_scale (int): Scaling factor for the standard deviation of the Gaussian used during the
                          displacement of the radial ACSF terms.
     - new_format (logic): use old (deprecated) or new format to store the ACSF angular parameters.
@@ -102,7 +100,7 @@ This function presents a customized iteration of the conventional radial selecto
                             
     mm2sf_radial.radial_selector_binary(trjname="./alanine_capped_AMBER_traj_500K.xyz", nbins=1000, 
                             nmax=15, max_iter=10000, bw=None, smooth='no',rcut=7.0, trj_step=1, 
-                            cut_type='hard', over_thres=0.005, rtype=1, alpha=3, beta=0.5,new_format=True)
+                            cut_type='hard', over_thres=0.005, alpha=3, beta=0.5,new_format=True)
     Parameters:
     - trjname (str): Path to the trajectory file (XYZ format in Angstroms).
     - nbins (int): Number of bins for histograms.
@@ -114,7 +112,6 @@ This function presents a customized iteration of the conventional radial selecto
     - trj_step (int): Step used to sample the geometries.
     - cut_type (str): Cutoff type ('hard' or 'soft').
     - over_thres (float): Overlap threshold to include auxiliary functions.
-    - rtype (int): Type of radial (1 or 2).
     - alpha (int): Scaling factor for the standard deviation of the Gaussian used for displacement.
     - beta (float): Scaling factor for the standard deviation of the Gaussian used to determine the overlap.
                     of the binary gaussians in the center of the cluster.
@@ -126,7 +123,7 @@ This function signifies a deviation from the standard radial selector, introduci
                             
     mm2sf_radial.radial_selector_even(trjname="./alanine_capped_AMBER_traj_500K.xyz", nbins=1000, 
                             nmax=15, max_iter=10000, bw=None, smooth='no',rcut=7.0, trj_step=1, 
-                            cut_type='hard', ndecomp=4, over_thres=0.005, aux='no',rtype=1,new_format=True)
+                            cut_type='hard', ndecomp=4, over_thres=0.005, aux='no',new_format=True)
   
     Parameters:
     - trjname (str): Path to the trajectory file (XYZ format in Angstroms).
@@ -141,7 +138,6 @@ This function signifies a deviation from the standard radial selector, introduci
     - ndecomp (int): Number of Gaussians in which each GMM component will be further decomposed.
     - over_thres (float): Overlap threshold to include auxiliary functions.
     - aux (str): Include auxiliary functions ('yes' or 'no').
-    - rtype (int): Type of radial (1 or 2).
     - new_format (logic): use old (deprecated) or new format to store the ACSF angular parameters.
     
     
