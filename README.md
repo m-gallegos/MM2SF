@@ -157,27 +157,14 @@ This function represents a version that employs uniformly distributed Gaussian f
 
 Here, we present an illustrative example showcasing the straightforward utilization of MM2SF to systematically explore the angular space within a molecular framework. This example demonstrates how MM2SF can be effortlessly employed to construct a comprehensive collection of angular symmetry functions, effectively describing the intricate spatial characteristics of the molecular system. Currently, different angular symmetry function kernels are implemented in MM2SF:
 
-    -atype= 1 Normal angular symmetry function.
-```math      
-                G^{ang}_{i} = 2^{1-\xi}\sum^{N}_{j \ne i} \sum^{N}_{k \ne i,j} [(1 + \lambda \cdot cos \theta_{ijk})^{\xi}
-                \cdot e^{-\eta [(r_{ij}-r_s)^2 + (r_{ik}-r_s)^2 +  (r_{jk}-r_s)^2]}\cdot f_c(r_{ij}) \cdot f_c(r_{ik}) \cdot f_c(r_{jk})].
-```     
-    -atype= 2 Modified angular symmetry function.
- ```math       
-                G^{ang}_{i} = 2^{1-\xi}\sum^{N}_{j \ne i} \sum^{N}_{k \ne i,j} [(1 + \lambda \cdot cos \theta_{ijk})^{\xi}
-                \cdot e^{-\eta [(r_{ij}-r_s)^2 + (r_{ik}-r_s)^2] }\cdot f_c(r_{ij}) \cdot f_c(r_{ik})].
-```   
     -atype= 3 Heavily Modified angular symmetry function.
 ```math
 G^{ang}_{i} = 2^{1-\xi} \sum^{N}_{j,k \ne i} (1 + cos(\theta_{ijk}-\theta_{s}))^{\xi}
 \cdot exp \left [ -\eta \left ( \frac{r_{ij} + r_{ik}}{2} -r_s\right )^2 \right ] \cdot f_c(r_{ij}) \cdot f_c(r_{ik}).
 ```
-    -atype= 4 Z-Weighted angular symmetry function.
-```math
-                        W^{ang}_{i} = 2^{1-\xi} \cdot h(Z_j,Z_k) \cdot \sum^{N}_{j \ne i} \sum^{N}_{k \ne i,j} [(1 + \lambda \cdot cos \theta_{ijk})^{\xi}
-                        \cdot e^{-\eta [(r_{ij}-r_s)^2 + (r_{ik}-r_s)^2 +  (r_{jk}-r_s)^2]}\cdot f_c(r_{ij}) \cdot f_c(r_{ik}) \cdot f_c(r_{jk})],
-```
-    -atype= 5 Heavily Modified with independent radial grids
+    -atype= 5 Heavily Modified with independent radial grids (it is equivalent to atype= 3  but independent radial grids are employed for the different elements comprising the neighboring atomic pair, which should provide the function with greater flexibility). 
+
+Although other kernels are also implemented in the built-in ACSF computation module, the tend to offer worse performances and so the optimization of their kernel parameters has not been implemented yet in the angular selector module. That said, this point may be addressed in the near future. 
 
 First, the MM2SF package, along with its angular module, must be imported:
 
