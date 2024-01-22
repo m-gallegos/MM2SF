@@ -192,7 +192,7 @@ First, the MM2SF package, along with its acsf computation module, must be import
     import MM2SF as mm2sf
     from MM2SF.acsf import *
     
-### New format
+Then the ACSF featues can be computed by calling the built-in compute_ACSF function. The latter requires the XYZ file along with the input.rad anf input.ang files (gathering the optimized ACSF parameters, previously generatred by MM2SF).
 
     mm2sf_sfc.compute_ACSF(trjname="./alanine_capped_AMBER_traj_500K.xyz",irad="./input.rad",iang="./input.ang",new_format=True)    
     
@@ -206,7 +206,14 @@ First, the MM2SF package, along with its acsf computation module, must be import
                   constructing angular symmetry functions.)
     - new_format (logic): use old (deprecated) or new formats for the creation of the ACSF files.
                   When using the old format, the input.type file must be provided.
-                  
+
+Once executed, the code will produce two files gathering the same information but using slightly different formatings:
+   -*_acsf_nn.out: atom chemical identity, atomic properties in order (if any), ACSF features.
+   -*_acsf_GP.out (it uses an extended XYZ format): for each moelcule, the following format is used:
+    22 # Number of atoms
+       # Blank line
+    O -1.284000 -1.369000 -0.514000 None 0.000000 0.000000 0.000011 0.020075 .... (Atom identity, XZY coordiantes, Atomic properties and ACSF features).
+    
 ### Old format
 
     mm2sf_sfc.compute_ACSF(trjname="./alanine_capped_AMBER_traj_500K.xyz",itype="./input.type",irad="./input.rad",iang="./input.ang",new_format=False)
