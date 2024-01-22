@@ -28,10 +28,23 @@ Alternatively, one can download the zip file from the MM2SF GitHub and run the f
 
 # Execution
 
-MM2SF can be directly executed from the command line. 
+MM2SF is designed for seamless execution from the command line, necessitating only a trajectory file containing XYZ Cartesian Coordinates in Angstroms. To ensure an accurate selection of ACSF parameters, it is crucial that the trajectory file reflects a comprehensive sampling of the potential energy landscape within the target systems.
+
+For this purpose, employing Molecular Dynamics (MD) or Normal Mode Sampling (NMS) proves highly beneficial. In this context, conducting simulations at relatively elevated temperatures is generally recommended to facilitate a representative exploration of the conformational space. This approach enhances the reliability of ACSF parameter selection, contributing to the overall effectiveness of MM2SF in capturing the intricate dynamics of the molecular system.
+
+## Self-Optimization of the Radial ACSFs
+
+Here, we present an illustrative example showcasing the straightforward utilization of MM2SF to systematically explore the radial space within a molecular framework. This example demonstrates how MM2SF can be effortlessly employed to construct a comprehensive collection of radial symmetry functions, effectively describing the intricate spatial characteristics of the molecular system.
+
+First, the MM2SF package, along with its radial module, must be imported:
 
     import MM2SF as mm2sf
     from MM2SF.radial import *
+
+Then the radial selector is invoked. As previously mentioned, this process necessitates a trajectory file that consolidates XYZ Cartesian coordinates from the various geometries explored during the sampling. Four distinct spatial distribution schemes are implemented, namely: tailor-made, displaced, binary, and even.
+
+### Tailor-made distribution
+    
     mm2sf_radial.radial_selector_tailormade(trjname="./alanine_capped_AMBER_traj_500K.xyz",nbins=1000, 
                             nmax=15,max_iter=10000,bw=None,smooth='no',rcut=7.0,trj_step=100, 
                             cut_type='hard',ndecomp=2,over_thres=0.005,aux="yes",rtype=1,new_format=True)
