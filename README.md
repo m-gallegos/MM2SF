@@ -75,7 +75,7 @@ Now, it should be noted that cahnging the rtype will not have any implications o
     - ndecomp (int): Number of Gaussians in which each GMM component will be further decomposed.
     - over_thres (float): Overlap threshold to include auxiliary functions.
     - aux (str): Whether to include auxiliary functions ('yes' or 'no').
-    - rtype (int): Type of radial (used for printing the input.rad file).
+    - rtype (int): Type of radial (1 or 2).
     - new_format (logic): use old (deprecated) or new format to store the ACSF angular parameters.
 
 
@@ -96,7 +96,7 @@ Now, it should be noted that cahnging the rtype will not have any implications o
     - trj_step (int): Step used to sample the geometries.
     - cut_type (str): Cutoff type ('hard' or 'soft').
     - over_thres (float): Overlap threshold to include auxiliary functions.
-    - rtype (int): Type of radial.
+    - rtype (int): Type of radial (1 or 2).
     - sigma_scale (int): Scaling factor for the standard deviation of the Gaussian used during the
                          displacement of the radial ACSF terms.
     - new_format (logic): use old (deprecated) or new format to store the ACSF angular parameters.
@@ -120,7 +120,7 @@ This function presents a customized iteration of the conventional radial selecto
     - trj_step (int): Step used to sample the geometries.
     - cut_type (str): Cutoff type ('hard' or 'soft').
     - over_thres (float): Overlap threshold to include auxiliary functions.
-    - rtype (int): Type of radial.
+    - rtype (int): Type of radial (1 or 2).
     - alpha (int): Scaling factor for the standard deviation of the Gaussian used for displacement.
     - beta (float): Scaling factor for the standard deviation of the Gaussian used to determine the overlap.
                     of the binary gaussians in the center of the cluster.
@@ -147,7 +147,7 @@ This function signifies a deviation from the standard radial selector, introduci
     - ndecomp (int): Number of Gaussians in which each GMM component will be further decomposed.
     - over_thres (float): Overlap threshold to include auxiliary functions.
     - aux (str): Include auxiliary functions ('yes' or 'no').
-    - rtype (int): Type of radial.
+    - rtype (int): Type of radial (1 or 2).
     - new_format (logic): use old (deprecated) or new format to store the ACSF angular parameters.
     
     
