@@ -69,7 +69,7 @@ def angular_selector(trjname=None, rcut=3.5, nbins=500, trj_step=20, nmax=20, ma
     end_time=time.time()
     # Get the local neighboring matrix
     telem,indjk,vecino=chemmat(symbols)
-    clean_files()
+    clean_files('angular')
     if not new_format: create_input_type(symbols)  # input.type for the computation of the ACSF features
     # Iterate over all the combinations between elements and atomic pairs
     max_ang=0  # (comes from a deprecated issue of the ACSF generator code)
