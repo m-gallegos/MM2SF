@@ -43,17 +43,19 @@ First, the MM2SF package, along with its radial module, must be imported:
 
 Then the radial selector is invoked. As previously mentioned, this process necessitates a trajectory file that consolidates XYZ Cartesian coordinates from the various geometries explored during the sampling. Four distinct spatial distribution schemes are implemented, namely: tailor-made, displaced, binary, and even. Two different radial symmetry function kernels are implemented:
 
-    rtype =  1 , Normal Radial Symmetry Function
+    rtype =  1 , Normal Radial Symmetry Function (J. Behler , The Journal of Chemical Physics, 134, 074106 (2011), J. Behler and M. Parrinello, Physical Review Letters, 98, 146401 (2007)).
 
 ```math
 G^{rad}_{i} = \sum^{N}_{j \ne i} e^{-\eta(r_{ij}-r_{s})^{2}} \cdot fc(r_{ij}).
 ```
 
-    rtype =  2 , Z-Weighted Radial Symmetry Function
+    rtype =  2 , Z-Weighted Radial Symmetry Function (M. Gastegger, L. Schwiedrzik, M. Bittermann, F. Berzsenyi and P. Marquetand, The Journal of Chemical Physics, 148, 241709 (2018).)
 
 ```math
 W^{rad}_{i} = \sum^{N}_{j \ne i} g(Z_j) \cdot e^{-\eta(r_{ij}-r_{s})^{2}} \cdot fc(r_{ij}),
 ```
+
+Now, it should be noted that cahnging the rtype will not have any implications on the optimization of the radial features, but just on the construction of the final ACSF radial features (see below for more details).
 
 ### Tailor-made distribution
     
