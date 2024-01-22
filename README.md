@@ -156,6 +156,7 @@ This function represents a version that employs uniformly distributed Gaussian f
 ## Self-Optimization of Angular ACSFs
 
 Here, we present an illustrative example showcasing the straightforward utilization of MM2SF to systematically explore the angular space within a molecular framework. This example demonstrates how MM2SF can be effortlessly employed to construct a comprehensive collection of angular symmetry functions, effectively describing the intricate spatial characteristics of the molecular system. Currently, different angular symmetry function kernels are implemented in MM2SF:
+
     -atype= 1 Normal angular symmetry function.
 ```math      
                 G^{ang}_{i} = 2^{1-\xi}\sum^{N}_{j \ne i} \sum^{N}_{k \ne i,j} [(1 + \lambda \cdot cos \theta_{ijk})^{\xi}
