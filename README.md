@@ -140,7 +140,7 @@ This function signifies a deviation from the standard radial selector, introduci
     - new_format (logic): use old (deprecated) or new format to store the ACSF angular parameters.
     
     
-This function represents a version that employs uniformly distributed Gaussian functions in space.    
+This function represents a version that employs uniformly distributed Gaussian functions in space (the same number as that corrsponding to the tailor-made functions with a given number of decompositions and auxiliar functions (optional) will be uniformely spread wihtin the cutoff radius). 
 
 ## Self-Optimization of Angular ACSFs
 
