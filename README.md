@@ -32,7 +32,7 @@ MM2SF is designed for seamless execution from the command line, necessitating on
 
 For this purpose, employing Molecular Dynamics (MD) or Normal Mode Sampling (NMS) proves highly beneficial. In this context, conducting simulations at relatively elevated temperatures is generally recommended to facilitate a representative exploration of the conformational space. This approach enhances the reliability of ACSF parameter selection, contributing to the overall effectiveness of MM2SF in capturing the intricate dynamics of the molecular system.
 
-## Self-Optimization of the Radial ACSFs
+## Self-Optimization of Radial ACSFs
 
 Here, we present an illustrative example showcasing the straightforward utilization of MM2SF to systematically explore the radial space within a molecular framework. This example demonstrates how MM2SF can be effortlessly employed to construct a comprehensive collection of radial symmetry functions, effectively describing the intricate spatial characteristics of the molecular system.
 
@@ -63,20 +63,83 @@ Then the radial selector is invoked. As previously mentioned, this process neces
     - aux (str): Whether to include auxiliary functions ('yes' or 'no').
     - rtype (int): Type of radial (used for printing the input.rad file).
     - new_format (logic): use old (deprecated) or new format to store the ACSF angular parameters.
-    
+
+
+### Displaced distribution
+
     mm2sf_radial.radial_selector_displaced(trjname="./alanine_capped_AMBER_traj_500K.xyz", nbins=1000, 
                             nmax=15, max_iter=10000, bw=None, smooth='no',rcut=7.0, trj_step=1, 
                             cut_type='hard', over_thres=0.005,rtype=1,sigma_scale=3,new_format=True)
+
+    Parameters:
+    - trjname (str): Path to the trajectory file (XYZ format in Angstroms).
+    - nbins (int): Number of bins for histograms.
+    - nmax (int): Maximum number of Gaussian functions to look for.
+    - max_iter (int): Maximum number of iterations for GMM.
+    - bw (float, optional): Bandwidth for smoothing; if None, calculated as 50/float(nbins).
+    - smooth (str): Whether to smooth the data before passing it to the GMM models ('yes' or 'no').
+    - rcut (float): Cutoff radius in Angstroms.
+    - trj_step (int): Step used to sample the geometries.
+    - cut_type (str): Cutoff type ('hard' or 'soft').
+    - over_thres (float): Overlap threshold to include auxiliary functions.
+    - rtype (int): Type of radial.
+    - sigma_scale (int): Scaling factor for the standard deviation of the Gaussian used during the
+                         displacement of the radial ACSF terms.
+    - new_format (logic): use old (deprecated) or new format to store the ACSF angular parameters.
+
+
+This function presents a customized iteration of the conventional radial selector. In this adaptation, a deliberate displacement is introduced to Gaussian functions, strategically addressing the inherent symmetry challenge posed by Gaussian functions centered within clusters. The modification aims to enhance the effectiveness of the radial selector in capturing nuanced features of the atomic environment.
+
+### Binary distribution
                             
     mm2sf_radial.radial_selector_binary(trjname="./alanine_capped_AMBER_traj_500K.xyz", nbins=1000, 
                             nmax=15, max_iter=10000, bw=None, smooth='no',rcut=7.0, trj_step=1, 
                             cut_type='hard', over_thres=0.005, rtype=1, alpha=3, beta=0.5,new_format=True)
+    Parameters:
+    - trjname (str): Path to the trajectory file (XYZ format in Angstroms).
+    - nbins (int): Number of bins for histograms.
+    - nmax (int): Maximum number of Gaussian functions to look for.
+    - max_iter (int): Maximum number of iterations for GMM.
+    - bw (float, optional): Bandwidth for smoothing; if None, calculated as 50/float(nbins).
+    - smooth (str): Whether to smooth the data before passing it to the GMM models ('yes' or 'no').
+    - rcut (float): Cutoff radius in Angstroms.
+    - trj_step (int): Step used to sample the geometries.
+    - cut_type (str): Cutoff type ('hard' or 'soft').
+    - over_thres (float): Overlap threshold to include auxiliary functions.
+    - rtype (int): Type of radial.
+    - alpha (int): Scaling factor for the standard deviation of the Gaussian used for displacement.
+    - beta (float): Scaling factor for the standard deviation of the Gaussian used to determine the overlap.
+                    of the binary gaussians in the center of the cluster.
+    - new_format (logic): use old (deprecated) or new format to store the ACSF angular parameters.                   
+
+This function signifies a deviation from the standard radial selector, introducing a novel approach wherein two binary Gaussian functions are generated for each cluster. This innovative method precisely delineates the upper and lower bounds of the Gaussian functions, eliminating the imposition of artificial symmetries and providing a more accurate representation of the atomic environment.
+    
+### Even distribution
                             
     mm2sf_radial.radial_selector_even(trjname="./alanine_capped_AMBER_traj_500K.xyz", nbins=1000, 
                             nmax=15, max_iter=10000, bw=None, smooth='no',rcut=7.0, trj_step=1, 
                             cut_type='hard', ndecomp=4, over_thres=0.005, aux='no',rtype=1,new_format=True)
+  
+    Parameters:
+    - trjname (str): Path to the trajectory file (XYZ format in Angstroms).
+    - nbins (int): Number of bins for histograms.
+    - nmax (int): Maximum number of Gaussian functions to look for.
+    - max_iter (int): Maximum number of iterations for GMM.
+    - bw (float, optional): Bandwidth for smoothing; if None, calculated as 50/float(nbins).
+    - smooth (str): Whether to smooth the data before passing it to the GMM models ('yes' or 'no').
+    - rcut (float): Cutoff radius in Angstroms.
+    - trj_step (int): Step used to sample the geometries.
+    - cut_type (str): Cutoff type ('hard' or 'soft').
+    - ndecomp (int): Number of Gaussians in which each GMM component will be further decomposed.
+    - over_thres (float): Overlap threshold to include auxiliary functions.
+    - aux (str): Include auxiliary functions ('yes' or 'no').
+    - rtype (int): Type of radial.
+    - new_format (logic): use old (deprecated) or new format to store the ACSF angular parameters.
+    
+    
+This function represents a version that employs uniformly distributed Gaussian functions in space.    
 
-
+## Self-Optimization of Angular ACSFs
     import MM2SF as mm2sf
     from MM2SF.angular import *
     mm2sf_angular.angular_selector(trjname="./alanine_capped_AMBER_traj_500K.xyz", rcut=3.5, nbins=500, trj_step=250, nmax=20, max_iter=100000000,
