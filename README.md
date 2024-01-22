@@ -200,8 +200,6 @@ Then the ACSF featues can be computed by calling the built-in compute_ACSF funct
     
     Parameters:
     - trjname (str): Name of the trajectory file with .xyz extension (as XYZ coordinates).
-    - itype (str): path to the input.type file (file containing information about the 
-                  number and types of different chemical elements in the database).
     - irad (str): path to the input.rad file (file specifying the parameters for 
                   constructing radial symmetry functions.)
     - iang (str): path to the input.and file (file specifying the parameters for 
