@@ -13,7 +13,7 @@ from MM2SF.basics.functions import *
 
 def radial_selector_tailormade(trjname=None, nbins=1000, nmax=15, max_iter=10000, bw=None, smooth='no',
                             rcut=7.0, trj_step=1, cut_type='hard', ndecomp=2,
-                            over_thres=0.005, aux="yes", rtype=1, new_format=True):
+                            over_thres=0.005, aux="yes", new_format=True):
     """
     Process trajectory data using Gaussian Mixture Model (GMM) analysis.
 
@@ -30,10 +30,12 @@ def radial_selector_tailormade(trjname=None, nbins=1000, nmax=15, max_iter=10000
     - ndecomp (int): Number of Gaussians in which each GMM component will be further decomposed.
     - over_thres (float): Overlap threshold to include auxiliary functions.
     - aux (str): Whether to include auxiliary functions ('yes' or 'no').
-    - rtype (int): Type of radial (used for printing the input.rad file).
+    - rtype (int): Type of radial (used for printing the input.rad file). ! CURRENTLY DISABLED
     - new_format (logic): use old (deprecated) or new format to store the ACSF angular parameters.
 
     """
+    # Use normal radial ACSF
+    rtype= 1
     print(" # Spatial distribution strategy    = tailor-made")
     # Initialize some variables
     if bw is None: bw=50/float(nbins)
@@ -150,7 +152,7 @@ def radial_selector_tailormade(trjname=None, nbins=1000, nmax=15, max_iter=10000
 
 def radial_selector_displaced(trjname=None, nbins=1000, nmax=15, max_iter=10000, bw=None, smooth='no',
                                  rcut=7.0, trj_step=1, cut_type='hard', over_thres=0.005,
-                                 rtype=1, sigma_scale=3, new_format=True):
+                                 sigma_scale=3, new_format=True):
     """
     This function performs a displaced Gaussian selection on a trajectory.
 
@@ -165,7 +167,7 @@ def radial_selector_displaced(trjname=None, nbins=1000, nmax=15, max_iter=10000,
     - trj_step (int): Step used to sample the geometries.
     - cut_type (str): Cutoff type ('hard' or 'soft').
     - over_thres (float): Overlap threshold to include auxiliary functions.
-    - rtype (int): Type of radial.
+    - rtype (int): Type of radial. ! CURRENTLY DISABLED
     - sigma_scale (int): Scaling factor for the standard deviation of the Gaussian used during the
                          displacement of the radial ACSF terms.
     - new_format (logic): use old (deprecated) or new format to store the ACSF angular parameters.
@@ -181,7 +183,9 @@ def radial_selector_displaced(trjname=None, nbins=1000, nmax=15, max_iter=10000,
     Returns:
     None
     """
-    
+    # Use normal radial ACSF
+    rtype= 1   
+                                   
     # Initialize some variables
     print(" # Spatial distribution strategy    = displaced")
     if bw is None: bw=50/float(nbins)
@@ -303,7 +307,7 @@ def radial_selector_displaced(trjname=None, nbins=1000, nmax=15, max_iter=10000,
 
 def radial_selector_binary(trjname=None, nbins=1000, nmax=15, max_iter=10000, bw=None, smooth='no',
                               rcut=7.0, trj_step=1, cut_type='hard', over_thres=0.005,
-                              rtype=1, alpha=3, beta=0.5, new_format=True):
+                              alpha=3, beta=0.5, new_format=True):
     """
     This function performs a binary Gaussian selection on a trajectory.
 
@@ -318,7 +322,7 @@ def radial_selector_binary(trjname=None, nbins=1000, nmax=15, max_iter=10000, bw
     - trj_step (int): Step used to sample the geometries.
     - cut_type (str): Cutoff type ('hard' or 'soft').
     - over_thres (float): Overlap threshold to include auxiliary functions.
-    - rtype (int): Type of radial.
+    - rtype (int): Type of radial. ! CURRENTLY DISABLED
     - alpha (int): Scaling factor for the standard deviation of the Gaussian used for displacement.
     - beta (float): Scaling factor for the standard deviation of the Gaussian used to determine the overlap.
                     of the binary gaussians in the center of the cluster.
@@ -335,7 +339,8 @@ def radial_selector_binary(trjname=None, nbins=1000, nmax=15, max_iter=10000, bw
     Returns:
     None
     """
-
+    # Use normal radial ACSF
+    rtype= 1   
     # Initialize some variables
     print(" # Spatial distribution strategy    = binary")
     if bw is None: bw=50/float(nbins)
@@ -457,7 +462,7 @@ def radial_selector_binary(trjname=None, nbins=1000, nmax=15, max_iter=10000, bw
 
 def radial_selector_even(trjname=None, nbins=1000, nmax=15, max_iter=10000, bw=None, smooth='no',
                                              rcut=7.0, trj_step=1, cut_type='hard', ndecomp=4, over_thres=0.005,
-                                             aux='no', rtype=1, new_format=True):
+                                             aux='no', new_format=True):
     """
     This function performs a Gaussian selection with uniformly distributed Gaussians in space.
 
@@ -474,7 +479,7 @@ def radial_selector_even(trjname=None, nbins=1000, nmax=15, max_iter=10000, bw=N
     - ndecomp (int): Number of Gaussians in which each GMM component will be further decomposed.
     - over_thres (float): Overlap threshold to include auxiliary functions.
     - aux (str): Include auxiliary functions ('yes' or 'no').
-    - rtype (int): Type of radial.
+    - rtype (int): Type of radial. ! CURRENTLY DISABLED
     - new_format (logic): use old (deprecated) or new format to store the ACSF angular parameters.
 
     Note:
@@ -484,6 +489,8 @@ def radial_selector_even(trjname=None, nbins=1000, nmax=15, max_iter=10000, bw=N
     Returns:
     None
     """
+    # Use normal radial ACSF
+    rtype= 1                                
     # Initialize some variables
     print(" # Spatial distribution strategy    = even")
     if bw is None: bw=50/float(nbins)
