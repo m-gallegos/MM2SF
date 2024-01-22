@@ -10,7 +10,7 @@ import time
 from MM2SF.basics.functions import *
 
 def angular_selector(trjname=None, rcut=3.5, nbins=500, trj_step=20, nmax=20, max_iter=100000000,
-                      cv_type='full', gmm_crit="bicconv", atype=3, afrac=0.75, percbic=30, percdiff=40,
+                      cv_type='full', gmm_crit="bicconv", afrac=0.75, percbic=30, percdiff=40,
                       new_format=True):
     """
     This function processes the angular distribution.
@@ -24,14 +24,16 @@ def angular_selector(trjname=None, rcut=3.5, nbins=500, trj_step=20, nmax=20, ma
     - max_iter (int): Maximum number of iterations for GMM.
     - cv_type (str): GMM covariance type.
     - gmm_crit (str): Criterion employed for selecting the number of clusters ('bicmin' or 'bicconv').
-    - atype (int): Type of angular ACSF to be employed (3, heavily modified, or 5, pairwise expansion).
+    - atype (int): Type of angular ACSF to be employed (3, heavily modified, or 5, pairwise expansion) CURRENTLY DISABLED!
     - afrac (float): Percentage of angular functions to take (0 to 1).
     - percbic (float): BIC score percentile (required if gmm_crit is "bicconv").
     - percdiff (float): BIC diff percentile (required if gmm_crit is "bicconv").
     - new_format (logic): use old (deprecated) or new format to store the ACSF angular parameters.
 
     """
-    
+    # Use heavily modified angular ACSF 
+    atype=3
+                        
     print(" # Spatial distribution strategy    = tailor-made")
     # Extract the geometries from the trjfile
     print(" # Will read data from ", trjname, " every ", str(trj_step), " steps.")
