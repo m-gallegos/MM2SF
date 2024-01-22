@@ -1162,22 +1162,30 @@ def create_input_rad_new_format(elemi,elemj,symbols,rad_acsf):
                  f.write("{:.6f} {:.6f}\n".format(gaus[0], gaus[1]))
     return None
 
-def clean_files():
+def clean_files(tipo):
     """
     This function cleans the input ACSF files to avoid inconsistencies.
     """
     try:
-       os.remove("input.rad")
-    except FileNotFoundError:
-       pass
-    try:
        os.remove("input.type")
     except FileNotFoundError:
        pass
-    try:
-       os.remove("input.ang")
-    except FileNotFoundError:
-       pass
+    else:
+       print(" # INFO: an existing input.type file has been removed.")
+    if tipo == "angular":
+       try:
+          os.remove("input.ang")
+       except FileNotFoundError:
+          pass
+       else:
+          print(" # INFO: an existing input.ang file has been removed.")
+    elif tipo == "radial":
+       try:
+          os.remove("input.rad")
+       except FileNotFoundError:
+          pass
+       else:
+          print(" # INFO: an existing input.rad file has been removed.")
     return None
 
 def even_gaussians(rc, n):
