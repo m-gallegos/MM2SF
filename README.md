@@ -175,6 +175,18 @@ Then the angular selector is invoked. As previously mentioned, this process nece
 
 In addition to the optimization of ACSF parameters, MM2SF incorporates a built-in module for computing the final ACSF descriptors of a specified molecule or a collection of molecules. This functionality relies on an input file that consolidates the concatenated XYZ Cartesian coordinates of the target molecules for which ACSF features will be computed. It is worth noting that this input file can include additional columns corresponding to atomic properties. If such columns are present in the initial XYZ file, MM2SF seamlessly incorporates them into the final output files. This capability significantly streamlines the creation of final databases for practical machine learning purposes.
 
+    8
+    # XYZ coodinates of a molecule along with atomic properties
+    N      -1.251576605435      -1.083935829497       0.026316267168  prop1
+    C      -1.858843050383       0.202786044207       0.047861361978  prop2
+    N      -1.007350896530       1.334075589503      -0.059527127050  prop3
+    C       0.154282232245      -1.366733347294       0.006918469122  prop4
+    C       0.890689092262      -0.199589588701      -0.065892436565  prop5
+    C       0.358885284422       1.111356713435       0.056261088273  prop6
+    N       2.272815954059       0.013059813526      -0.088651269865  prop7
+    C       2.493157268062       1.373499159718       0.109470989373  prop8
+
+
 First, the MM2SF package, along with its acsf computation module, must be imported:
 
     import MM2SF as mm2sf
