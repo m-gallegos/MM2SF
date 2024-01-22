@@ -76,6 +76,9 @@ def radial_selector_tailormade(trjname=None, nbins=1000, nmax=15, max_iter=10000
             mask = dist != 0
             dist=dist[mask]
             print(" # Discarding null values from distance distribution.")
+            if len(dist) == 0 :
+               print(" # Not enough data to perform the GMM clustering.")
+               continue
             # Parse the distribution to 2D data:
             x,y=extract_distribution(dist, nbins)
             x= np.reshape(x, (-1, 1))
@@ -224,6 +227,9 @@ def radial_selector_displaced(trjname=None, nbins=1000, nmax=15, max_iter=10000,
             mask = dist != 0
             dist=dist[mask]
             print(" # Discarding null values from distance distribution.")
+            if len(dist) == 0 :
+               print(" # Not enough data to perform the GMM clustering.")
+               continue
             # Parse the distribution to 2D data:
             x,y=extract_distribution(dist, nbins)
             x= np.reshape(x, (-1, 1))
@@ -376,6 +382,9 @@ def radial_selector_binary(trjname=None, nbins=1000, nmax=15, max_iter=10000, bw
             mask = dist != 0
             dist=dist[mask]
             print(" # Discarding null values from distance distribution.")
+            if len(dist) == 0 :
+               print(" # Not enough data to perform the GMM clustering.")
+               continue
             # Parse the distribution to 2D data:
             x,y=extract_distribution(dist, nbins)
             x= np.reshape(x, (-1, 1))
@@ -516,6 +525,9 @@ def radial_selector_even(trjname=None, nbins=1000, nmax=15, max_iter=10000, bw=N
             mask = dist != 0
             dist=dist[mask]
             print(" # Discarding null values from distance distribution.")
+            if len(dist) == 0 :
+               print(" # Not enough data to perform the GMM clustering.")
+               continue
             # Parse the distribution to 2D data:
             x,y=extract_distribution(dist, nbins)
             x= np.reshape(x, (-1, 1))
