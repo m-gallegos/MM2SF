@@ -41,7 +41,19 @@ First, the MM2SF package, along with its radial module, must be imported:
     import MM2SF as mm2sf
     from MM2SF.radial import *
 
-Then the radial selector is invoked. As previously mentioned, this process necessitates a trajectory file that consolidates XYZ Cartesian coordinates from the various geometries explored during the sampling. Four distinct spatial distribution schemes are implemented, namely: tailor-made, displaced, binary, and even.
+Then the radial selector is invoked. As previously mentioned, this process necessitates a trajectory file that consolidates XYZ Cartesian coordinates from the various geometries explored during the sampling. Four distinct spatial distribution schemes are implemented, namely: tailor-made, displaced, binary, and even. Two different radial symmetry function kernels are implemented:
+
+    rtype =  1 , Normal Radial Symmetry Function
+
+```math
+G^{rad}_{i} = \sum^{N}_{j \ne i} e^{-\eta(r_{ij}-r_{s})^{2}} \cdot fc(r_{ij}).
+```
+
+    rtype =  2 , Z-Weighted Radial Symmetry Function
+
+```math
+W^{rad}_{i} = \sum^{N}_{j \ne i} g(Z_j) \cdot e^{-\eta(r_{ij}-r_{s})^{2}} \cdot fc(r_{ij}),
+```
 
 ### Tailor-made distribution
     
