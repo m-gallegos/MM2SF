@@ -140,13 +140,63 @@ This function signifies a deviation from the standard radial selector, introduci
 This function represents a version that employs uniformly distributed Gaussian functions in space.    
 
 ## Self-Optimization of Angular ACSFs
+
+Here, we present an illustrative example showcasing the straightforward utilization of MM2SF to systematically explore the angular space within a molecular framework. This example demonstrates how MM2SF can be effortlessly employed to construct a comprehensive collection of angular symmetry functions, effectively describing the intricate spatial characteristics of the molecular system.
+
+First, the MM2SF package, along with its angular module, must be imported:
+
     import MM2SF as mm2sf
     from MM2SF.angular import *
+
+Then the angular selector is invoked. As previously mentioned, this process necessitates a trajectory file that consolidates XYZ Cartesian coordinates from the various geometries explored during the sampling. Currenlty, only the standard (tailor-made) distribution scheme is implemented.
+
+### Tailor-made distribution
+
     mm2sf_angular.angular_selector(trjname="./alanine_capped_AMBER_traj_500K.xyz", rcut=3.5, nbins=500, trj_step=250, nmax=20, max_iter=100000000,
                  cv_type='full', gmm_crit="bicconv", atype=3, afrac=0.75, percbic=30, percdiff=40,new_format=True)
 
+    Parameters:
+    - trjname (str): Path to the trajectory file (XYZ format in Angstroms).
+    - rcut (float): Cutoff radius (in Angstroms).
+    - nbins (int): Number of bins for 2D histograms.
+    - trj_step (int): Step used to sample the geometries.
+    - nmax (int): Maximum number of Gaussian functions to look for.
+    - max_iter (int): Maximum number of iterations for GMM.
+    - cv_type (str): GMM covariance type.
+    - gmm_crit (str): Criterion employed for selecting the number of clusters ('bicmin' or 'bicconv').
+    - atype (int): Type of angular ACSF to be employed (3, heavily modified, or 5, pairwise expansion).
+    - afrac (float): Percentage of angular functions to take (0 to 1).
+    - percbic (float): BIC score percentile (required if gmm_crit is "bicconv").
+    - percdiff (float): BIC diff percentile (required if gmm_crit is "bicconv").
+    - new_format (logic): use old (deprecated) or new format to store the ACSF angular parameters.
+
+## Computation of the optimized ACSF features
+
+
+In addition to the optimization of ACSF parameters, MM2SF incorporates a built-in module for computing the final ACSF descriptors of a specified molecule or a collection of molecules. This functionality relies on an input file that consolidates the concatenated XYZ Cartesian coordinates of the target molecules for which ACSF features will be computed. It is worth noting that this input file can include additional columns corresponding to atomic properties. If such columns are present in the initial XYZ file, MM2SF seamlessly incorporates them into the final output files. This capability significantly streamlines the creation of final databases for practical machine learning purposes.
+
+First, the MM2SF package, along with its acsf computation module, must be imported:
+
+    import MM2SF as mm2sf
     from MM2SF.acsf import *
+    
+### New format
+
     mm2sf_sfc.compute_ACSF(trjname="./alanine_capped_AMBER_traj_500K.xyz",irad="./input.rad",iang="./input.ang",new_format=True)    
+    
+    Parameters:
+    - trjname (str): Name of the trajectory file with .xyz extension (as XYZ coordinates).
+    - itype (str): path to the input.type file (file containing information about the 
+                  number and types of different chemical elements in the database).
+    - irad (str): path to the input.rad file (file specifying the parameters for 
+                  constructing radial symmetry functions.)
+    - iang (str): path to the input.and file (file specifying the parameters for 
+                  constructing angular symmetry functions.)
+    - new_format (logic): use old (deprecated) or new formats for the creation of the ACSF files.
+                  When using the old format, the input.type file must be provided.
+                  
+### Old format
+
     mm2sf_sfc.compute_ACSF(trjname="./alanine_capped_AMBER_traj_500K.xyz",itype="./input.type",irad="./input.rad",iang="./input.ang",new_format=False)
 
 # References
