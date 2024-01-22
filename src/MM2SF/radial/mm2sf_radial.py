@@ -60,7 +60,7 @@ def radial_selector_tailormade(trjname=None, nbins=1000, nmax=15, max_iter=10000
     # Compute the radial distribution
     print(" # Computing the distance distribution........START!")
     symbols,dist_dists=compute_distance_distribution(geometries)
-    clean_files()
+    clean_files('radial')
     if not new_format: create_input_type(symbols) # input.type file for the computation of ACSF features
     print(" # Computing the distance distribution........DONE!")
     max_rad=0
@@ -208,7 +208,7 @@ def radial_selector_displaced(trjname=None, nbins=1000, nmax=15, max_iter=10000,
     # Compute the radial distribution
     print(" # Computing the distance distribution........START!")
     symbols,dist_dists=compute_distance_distribution(geometries)
-    clean_files()
+    clean_files('radial')
     if not new_format: create_input_type(symbols) # input.type file for the computation of ACSF features
     print(" # Computing the distance distribution........DONE!")
     max_rad=0
@@ -360,7 +360,7 @@ def radial_selector_binary(trjname=None, nbins=1000, nmax=15, max_iter=10000, bw
     # Compute the radial distribution
     print(" # Computing the distance distribution........START!")
     symbols,dist_dists=compute_distance_distribution(geometries)
-    clean_files()
+    clean_files('radial')
     if not new_format: create_input_type(symbols)
     print(" # Computing the distance distribution........DONE!")
     max_rad=0
@@ -500,7 +500,7 @@ def radial_selector_even(trjname=None, nbins=1000, nmax=15, max_iter=10000, bw=N
     # Compute the radial distribution
     print(" # Computing the distance distribution........START!")
     symbols,dist_dists=compute_distance_distribution(geometries)
-    clean_files()
+    clean_files('radial')
     if not new_format: create_input_type(symbols)
     print(" # Computing the distance distribution........DONE!")
     max_rad=0
