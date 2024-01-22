@@ -35,7 +35,22 @@ MM2SF can be directly executed from the command line.
     mm2sf_radial.radial_selector_tailormade(trjname="./alanine_capped_AMBER_traj_500K.xyz",nbins=1000, 
                             nmax=15,max_iter=10000,bw=None,smooth='no',rcut=7.0,trj_step=100, 
                             cut_type='hard',ndecomp=2,over_thres=0.005,aux="yes",rtype=1,new_format=True)
-
+    Parameters:
+    - trjname (str): Path to the trajectory file (XYZ format in Angstroms).
+    - nbins (int): Number of bins to be used for the histograms.
+    - nmax (int): Maximum number of Gaussian functions to look for.
+    - max_iter (int): Maximum number of iterations for GMM.
+    - bw (float): Bandwidth method for smoothing. Can be a float, 'scott', or 'silverman'.
+    - smooth (str): Whether to smooth the data before passing it to the GMM models ('yes' or 'no').
+    - rcut (float): Cutoff radius, in Angstroms.
+    - trj_step (int): Step used to sample the geometries of the trajectory file (sampling frequency).
+    - cut_type (str): Cutoff type ('hard' or 'soft').
+    - ndecomp (int): Number of Gaussians in which each GMM component will be further decomposed.
+    - over_thres (float): Overlap threshold to include auxiliary functions.
+    - aux (str): Whether to include auxiliary functions ('yes' or 'no').
+    - rtype (int): Type of radial (used for printing the input.rad file).
+    - new_format (logic): use old (deprecated) or new format to store the ACSF angular parameters.
+    
     mm2sf_radial.radial_selector_displaced(trjname="./alanine_capped_AMBER_traj_500K.xyz", nbins=1000, 
                             nmax=15, max_iter=10000, bw=None, smooth='no',rcut=7.0, trj_step=1, 
                             cut_type='hard', over_thres=0.005,rtype=1,sigma_scale=3,new_format=True)
