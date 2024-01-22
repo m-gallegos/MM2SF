@@ -41,15 +41,7 @@ First, the MM2SF package, along with its radial module, must be imported:
     import MM2SF as mm2sf
     from MM2SF.radial import *
 
-Then the radial selector is invoked. As previously mentioned, this process necessitates a trajectory file that consolidates XYZ Cartesian coordinates from the various geometries explored during the sampling. Four distinct spatial distribution schemes are implemented, namely: tailor-made, displaced, binary, and even. Despite different radial ACSF kernels are currently implemented in the MM2SF ACSF computation module, the optimization of their intrinsic parameters has only be implemented for the standard radial symmetry function kernel.
-
-    rtype =  1 , Normal Radial Symmetry Function (J. Behler , The Journal of Chemical Physics, 134, 074106 (2011), J. Behler and M. Parrinello, Physical Review Letters, 98, 146401 (2007)).
-
-```math
-G^{rad}_{i} = \sum^{N}_{j \ne i} e^{-\eta(r_{ij}-r_{s})^{2}} \cdot fc(r_{ij}).
-```
-
-However, in the near future we may explore the implementation of the self-tuning of the radial ACSF features using different kernels such as the Z-Weighted radial symmetry functions.
+Then the radial selector is invoked. As previously mentioned, this process necessitates a trajectory file that consolidates XYZ Cartesian coordinates from the various geometries explored during the sampling.
 
 ### Tailor-made distribution
     
@@ -145,16 +137,7 @@ This function represents a version that employs uniformly distributed Gaussian f
 
 ## Self-Optimization of Angular ACSFs
 
-Here, we present an illustrative example showcasing the straightforward utilization of MM2SF to systematically explore the angular space within a molecular framework. This example demonstrates how MM2SF can be effortlessly employed to construct a comprehensive collection of angular symmetry functions, effectively describing the intricate spatial characteristics of the molecular system. Currently, different angular symmetry function kernels are implemented in MM2SF:
-
-    -atype= 3 Heavily Modified angular symmetry function.
-```math
-G^{ang}_{i} = 2^{1-\xi} \sum^{N}_{j,k \ne i} (1 + cos(\theta_{ijk}-\theta_{s}))^{\xi}
-\cdot exp \left [ -\eta \left ( \frac{r_{ij} + r_{ik}}{2} -r_s\right )^2 \right ] \cdot f_c(r_{ij}) \cdot f_c(r_{ik}).
-```
-    -atype= 5 Heavily Modified with independent radial grids (it is equivalent to atype= 3  but independent radial grids are employed for the different elements comprising the neighboring atomic pair, which should provide the function with greater flexibility). 
-
-Although other kernels are also implemented in the built-in ACSF computation module, the tend to offer worse performances and so the optimization of their kernel parameters has not been implemented yet in the angular selector module. That said, this point may be addressed in the near future. 
+Here, we present an illustrative example showcasing the straightforward utilization of MM2SF to systematically explore the angular space within a molecular framework. This example demonstrates how MM2SF can be effortlessly employed to construct a comprehensive collection of angular symmetry functions, effectively describing the intricate spatial characteristics of the molecular system. 
 
 First, the MM2SF package, along with its angular module, must be imported:
 
