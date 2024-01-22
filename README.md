@@ -170,7 +170,7 @@ Then the angular selector is invoked. As previously mentioned, this process nece
 ### Tailor-made distribution
 
     mm2sf_angular.angular_selector(trjname="./alanine_capped_AMBER_traj_500K.xyz", rcut=3.5, nbins=500, trj_step=250, nmax=20, max_iter=100000000,
-                 cv_type='full', gmm_crit="bicconv", atype=3, afrac=0.75, percbic=30, percdiff=40,new_format=True)
+                 cv_type='full', gmm_crit="bicconv", afrac=0.75, percbic=30, percdiff=40,new_format=True)
 
     Parameters:
     - trjname (str): Path to the trajectory file (XYZ format in Angstroms).
@@ -181,7 +181,6 @@ Then the angular selector is invoked. As previously mentioned, this process nece
     - max_iter (int): Maximum number of iterations for GMM.
     - cv_type (str): GMM covariance type.
     - gmm_crit (str): Criterion employed for selecting the number of clusters ('bicmin' or 'bicconv').
-    - atype (int): Type of angular ACSF to be employed (3, heavily modified, or 5, pairwise expansion).
     - afrac (float): Percentage of angular functions to take (0 to 1).
     - percbic (float): BIC score percentile (required if gmm_crit is "bicconv").
     - percdiff (float): BIC diff percentile (required if gmm_crit is "bicconv").
