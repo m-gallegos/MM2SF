@@ -74,6 +74,8 @@ def compute_distance_distribution(geometries):
     """
     # Create a list of all unique atomic symbols
     symbols = np.unique([geom['symbols'] for geom in geometries])
+    symbols = set([item for sublist in symbols for item in sublist])
+    symbols = list(symbols)
     # Compute the pairwise distances between atoms in each geometry
     dists = []
     for geom in geometries:
@@ -102,6 +104,7 @@ def compute_distance_distribution(geometries):
             distance_distribution.setdefault(symbol2, {})[symbol1] = np.concatenate(symbol_dists)
     # Create a sorted set for the symbols
     symbols=list(symbols)
+    symbols = [item for sublist in symbols for item in sublist] 
     symbols=set(symbols)
     symbols=sorted(symbols)
     return symbols,distance_distribution
