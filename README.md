@@ -29,7 +29,7 @@ MM2SF can be easily installed using the pip Python package manager:
 
 Alternatively, one can download the zip file from the MM2SF GitHub and run the following command:
 
-    pip install MM2SSF-main.zip
+    pip install MM2SF-main.zip
 
 **Note: MM2SF requires a Python version >=3.7.3, <=3.11.5 and one of the latest pip package managers (at least 23.3.2).**
 
